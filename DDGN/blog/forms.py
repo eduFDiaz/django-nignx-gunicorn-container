@@ -1,0 +1,10 @@
+from django import forms
+
+from .models import Post
+
+
+class PostForm(forms.ModelForm):
+    # Post Form for the detailed view
+    class Meta:
+        model = Post
+        fields = ('title','description','text','category')

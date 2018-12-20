@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="col-md-8">
+    <div class="post">
+		{% if post.published_date %}
+		{% endif %}
+		<h1>{{ post.title }}
+            {% if user.is_authenticated %}
+		        <a style="margin-left: 50px;" class="btn btn-default" href="{% url 'post_edit' pk=post.pk slug=post.slug %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		    {% endif %}
+        </h1>
+        <div class="date">
+					<p>published: {{ post.published_date|timesince }} ago</p>
+        </div>
+		{{ post.description | safe }}
+		{{ post.text | safe | linebreaksbr }}
+        <hr/>
+        <p><div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div></p>
+        <p><div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div></p>
+	</div>
+</div>
+{% endblock %}

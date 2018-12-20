@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+		<div class="col-md-8">
+			{% for post in posts %}
+			<div class="post">
+				<h1><a href="{% url 'post_detail' pk=post.pk slug=post.slug %}">{{ post.title }}</a></h1>
+                <div class="date">
+					<p>published: {{ post.published_date|timesince }} ago</p>
+				</div>
+				{{ post.description | safe }}
+			</div>
+			{% endfor %}
+		</div>
+{% endblock %}

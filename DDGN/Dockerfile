@@ -1,7 +1,7 @@
 FROM python:3.6
 
 ENV PYTHONBUFFERED=1
-ENV WEBAPP_DIR=/DDGN
+ENV WEBAPP_DIR=/codingindfw
 
 RUN mkdir -p /var/log/gunicorn
 RUN mkdir $WEBAPP_DIR
